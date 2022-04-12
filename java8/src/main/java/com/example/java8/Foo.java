@@ -18,6 +18,5 @@ public class Foo {
 
         runSomething2.printAge();
 
-
     }
 }
