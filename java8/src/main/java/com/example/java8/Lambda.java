@@ -1,7 +1,10 @@
 package com.example.java8;
 
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.IntConsumer;
+import java.util.function.Supplier;
+import java.util.function.UnaryOperator;
 
 public class Lambda {
 
@@ -9,6 +12,21 @@ public class Lambda {
 
         Lambda lambda = new Lambda();
         lambda.run();
+
+        Supplier<Greeting> greetingSupplier = Greeting::new;
+        Greeting greeting = greetingSupplier.get();
+
+        UnaryOperator<String> hi = Greeting::hi;
+        UnaryOperator<String> hello = greeting::hello;
+
+        System.out.println(hi.apply("jin"));
+        System.out.println(hello.apply("tom"));
+
+        Function<String, Greeting> greetingFunction = Greeting::new;
+        Greeting jon = greetingFunction.apply("jon");
+
+        System.out.println(greeting.getName());
+        System.out.println(jon.getName());
 
     }
 
